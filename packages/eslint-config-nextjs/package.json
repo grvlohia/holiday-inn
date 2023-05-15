@@ -1,0 +1,17 @@
+{
+  "name": "eslint-config-nextjs",
+  "version": "1.0.0",
+  "description": "Base eslint config for all nextjs projects in the monorepo",
+  "main": "index.js",
+  "author": "Gaurav Lohia",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "devDependencies": { 
+    "eslint-config-next": "13.4.2",
+    "eslint-config-turbo": "^1.9.4",
+    "eslint-plugin-react": "^7.32.2",
+    "typescript": "5.0.4"
+  }
+}
