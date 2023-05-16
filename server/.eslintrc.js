@@ -11,4 +11,8 @@ module.exports = {
     node: true,
     jest: true,
   },
+  rules: {
+    // import
+    "import/namespace": "off"
+  }
 }
