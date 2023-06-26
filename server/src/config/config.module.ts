@@ -6,15 +6,15 @@ import databaseConfig from './database.config'
 
 const validationSchema = Joi.object({
   NODE_ENV: Joi.string().valid('development', 'production', 'test').default('development'),
-  MONGODB_URL: Joi.string().required(),
+  MONGODB_URL: Joi.string().required()
 })
 
 @Module({
   imports: [
     NestjsConfigModule.forRoot({
       load: [databaseConfig],
-      validationSchema: validationSchema,
-    }),
-  ],
+      validationSchema: validationSchema
+    })
+  ]
 })
 export class ConfigModule {}

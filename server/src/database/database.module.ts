@@ -11,8 +11,8 @@ import { MongooseModule } from '@nestjs/mongoose'
         const uri = configService.get<string>('database.url')
         console.log(uri)
         return { uri }
-      },
-    }),
-  ],
+      }
+    })
+  ]
 })
 export class DatabaseModule {}
