@@ -35,7 +35,7 @@ export class UserService {
 
   async findByIdentifier(identifier: string): Promise<User> {
     const user = await this.userModel.findOne({
-      $or: [{ email: identifier }, { username: identifier }]
+      $or: [{ email: identifier }, { userName: identifier }]
     })
 
     if (user) return user

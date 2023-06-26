@@ -1,7 +1,7 @@
 export class BaseUserDto {
   firstName: string
   lastName: string
-  username: string
+  userName: string
   email: string
   phoneNumber: string
   password: string

@@ -6,22 +6,22 @@ import { HydratedDocument } from 'mongoose'
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 export class User {
-  @Prop()
+  @Prop({ required: true })
   firstName: string
 
   @Prop()
   lastName: string
 
-  @Prop()
-  username: string
+  @Prop({ required: true, unique: true })
+  userName: string
 
-  @Prop()
+  @Prop({ required: true, unique: true })
   email: string
 
-  @Prop()
+  @Prop({ required: true, unique: true })
   phoneNumber: string
 
-  @Prop()
+  @Prop({ required: true })
   password: string
 
   @Prop()

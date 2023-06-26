@@ -3,6 +3,7 @@ import { JwtService } from '@nestjs/jwt'
 import { compare } from 'bcrypt'
 
 import { RegisterDto } from './dto/register.dto'
+import { MongoDbErrorCodes } from 'src/database/errorCodes'
 import { UserService } from 'src/user/user.service'
 
 @Injectable()
@@ -17,9 +18,13 @@ export class AuthService {
       })
 
       return createdUser
-    } catch (e) {
-      // TODO: add contraint for restrciting creation of duplicate user
-      console.log(e)
+    } catch (e: any) {
+      if (e?.code === MongoDbErrorCodes.UniqueKeyViolation) {
+        throw new HttpException(
+          'User with given email/username/phoneNumber already exists',
+          HttpStatus.FORBIDDEN
+        )
+      }
       throw new HttpException(e, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
